@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h1 class="card-title mt-3 text-center">Login Page</h1>
+            <hr>
+            <form [formGroup]="Form" novalidate class="form login-form">
+                <div class="form-group ">
+                    <input formControlName='email' class="form-control" placeholder="Email address" type="email">
+                    <mat-error *ngIf="Form.get('email').hasError('required') && Form.get('email').touched">
+                        Email is required</mat-error>
+
+                    <mat-error *ngIf="Form.get('email').hasError('pattern') && Form.get('email').touched">
+                        Please Enter Valid Email ID
+                    </mat-error>
+                </div>
+                <div class="form-group ">
+                    <input formControlName='password' class="form-control" placeholder="password" type="password"
+                        required>
+
+                        <mat-error
+                        *ngIf=" Form.get('password').hasError('required') && Form.get('password').touched">
+                        Password is required</mat-error>
+
+                    <mat-error 
+                        *ngIf="Form.get('password').hasError('pattern') && Form.get('password').touched">
+                        Please Enter Valid password
+                    </mat-error>
+
+                </div>
+                <div class="form-group">
+
+                    <input type="submit" class="btn btn-primary" style="width:100%" (click)="login()" value="SignIn">
+
+                </div>
+
+                      <a class="btn btn-link float-right" style="width: 100%;" routerLinkActive="active" routerLink="/register">Create Account
+                      </a>
+
+
+            </form>
+        </article>
+    </div>
+</div>

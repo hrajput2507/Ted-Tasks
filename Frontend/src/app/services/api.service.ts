@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiService {
   constructor( private http : HttpClient) { }
  
-getdataApi() {
+getdata() {
   this.http.get('http://localhost:1220/forms').subscribe(res => {
     console.log(res);
   })

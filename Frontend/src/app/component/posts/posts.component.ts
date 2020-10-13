@@ -10,6 +10,7 @@ import { PostsService} from '../../services/posts.service';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
+  
 
   messageClass;
     message;
@@ -104,7 +105,7 @@ export class PostsComponent implements OnInit {
     }
   
     getAllpost(data) {
-      this.postservice.getAllpost(data).subscribe(data => {
+      this.postservice.getdata(data).subscribe(data => {
         this.postPosts = data['post'];
 
         

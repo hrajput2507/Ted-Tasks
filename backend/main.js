@@ -8,6 +8,7 @@ var User = require("./models/users");
 var post = require("./models/posts");
 const auth= require("./helpers/api-auth");
 const { decode } = require("punycode");
+const { populate } = require("./models/users");
 
 
 
@@ -63,7 +64,23 @@ application.post("/login", async (req, res) => {
   });
   
 
+//populate  use.......
+application.get("/getdata",(req,res) => {
+    post.find({ "_id": req.query._id }).populate([{
+        "path": "userId",
+        "model": "users",
+        "select": 'name email'
+    }]).exec(function (err, response) {
+        if (err) {
+            console.log(err)
+        } else {
 
+          console.log("response",response);
+        }
+    });
+
+  
+});
 
   
 

@@ -23,7 +23,7 @@ export class PostsService {
     return this.http.post<any>('http://localhost:1220/posts',post);
 
   }
-  getAllpost(data) {
+  getdata(data) {
     return this.http.get<any>('http://localhost:1220/posts', data);
   }
 
